@@ -59,14 +59,14 @@ const SideBar = () => {
         <Command style={{ overflow :"visible"}}>
           <CommandList style={{ overflow :"visible"}}>
             <CommandInput placeholder="Type a command or search..." />
-            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>No results found</CommandEmpty>
             {menuList.map((menu, index) => {
               return (
-                <CommandGroup heading={menu.group}>
+                <CommandGroup key={index} heading={menu.group}>
                   {
                     menu?.items?.map((item, number) => {
                       return (
-                        <CommandItem style={{display:"flex", gap:'1rem'}}>
+                        <CommandItem key = {number} style={{display:"flex", gap:'1rem'}}>
                           {item.icon}
                           {item.text}
                         </CommandItem>

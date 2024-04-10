@@ -22,7 +22,9 @@ export default function RootLayout({
         <SideBar />
        <main className="grid w-full h-full">
         <Header />
-       {children}
+         <div className="p-8">
+         {children}
+         </div>
        </main>
       </body>
     </html>
