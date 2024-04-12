@@ -3,9 +3,9 @@ import React from 'react'
 import { ReceiptEuro, Inbox, User, Settings, EarthLock, Bell } from "lucide-react"
 import { UserItem } from './UserItem'
 import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "@/components/ui/command"
-import Image from 'next/image'
+import Useritem from 'useritem'
 
-const SideBar = () => { 
+const SideBar = () => {
   const menuList = [
     {
       group: 'General',
@@ -13,17 +13,17 @@ const SideBar = () => {
         {
           link: '/',
           text: 'Profile',
-          icon: <User/>
+          icon: <User />
         },
         {
           link: '/',
           text: 'Inbox',
-          icon: <Inbox/>
+          icon: <Inbox />
         },
         {
           link: '/',
           text: 'Billing',
-          icon: <ReceiptEuro/>
+          icon: <ReceiptEuro />
         }
       ]
     },
@@ -33,17 +33,17 @@ const SideBar = () => {
         {
           link: '/',
           text: 'General Settings',
-          icon: <Settings/>
+          icon: <Settings />
         },
         {
           link: '/',
           text: 'Privacy',
-          icon: <EarthLock/>
+          icon: <EarthLock />
         },
         {
           link: '/',
           text: 'Notifications',
-          icon: <Bell/>
+          icon: <Bell />
         }
       ]
     }
@@ -54,10 +54,18 @@ const SideBar = () => {
       <div >
         <UserItem />
       </div>
+      <div >
+        <UserItem
+          title="John Doe"
+          description="johndoe@mail.com"
+          avatarUrl="https://example.com/avatar.jpg"
+          onClick={(e) => console.log("User item clicked!", e)}
+        />
+      </div>
 
       <div className='grow'>
-        <Command style={{ overflow :"visible"}}>
-          <CommandList style={{ overflow :"visible"}}>
+        <Command style={{ overflow: "visible" }}>
+          <CommandList style={{ overflow: "visible" }}>
             <CommandInput placeholder="Type a command or search..." />
             <CommandEmpty>No results found</CommandEmpty>
             {menuList.map((menu, index) => {
@@ -66,7 +74,7 @@ const SideBar = () => {
                   {
                     menu?.items?.map((item, number) => {
                       return (
-                        <CommandItem key = {number} style={{display:"flex", gap:'1rem'}}>
+                        <CommandItem key={number} style={{ display: "flex", gap: '1rem' }}>
                           {item.icon}
                           {item.text}
                         </CommandItem>
